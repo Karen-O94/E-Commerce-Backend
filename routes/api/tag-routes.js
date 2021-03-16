@@ -45,12 +45,29 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  try {
-    const tagData = await Tag.update({where: { id: req.params.id }});
-    res.status(200).json(tagData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  // try {
+  //   const tagData = await Tag.update({where: { id: req.params.id }});
+  //   res.status(200).json(tagData);
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
+
+  Tag.update(req.body, {
+    where: {
+      id: req.params.id,
+    }, //search for Tag by id value
+  })
+    .then(tagData => {
+      if (!tagData[0]) {
+        res.status(404).json({ message: 'No tag found with this id' });
+        return; // if id value is 0, then return message above
+      }
+      res.json(tagData);//return tagData as a json
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.delete('/:id', (req, res) => {
@@ -60,7 +77,7 @@ router.delete('/:id', (req, res) => {
       where: { id: req.params.id }
     });
     if (!tagData) {
-      res.status(404).json({ message: 'No tag with this id!'});
+      res.status(404).json({ message: 'No tag with this id!' });
       return;
     }
     res.status(200).json(tagData);

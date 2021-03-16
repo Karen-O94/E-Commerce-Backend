@@ -46,13 +46,23 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // update a category by its `id` value
-  try {
-    const categoryData = await Category.update({where: { id: req.params.id }})
-    res.status(200).json(categoryData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+ // update a category by its `id` value
+  Category.update(req.body, {
+    where: {
+      id: req.params.id,
+    }, //search for category by id value
+  })
+    .then(categoryData => {
+      if (!categoryData[0]) {
+        res.status(404).json({ message: 'No tag found with this id' });
+        return; // if id value is 0, then return message above
+      }
+      res.json(categorytData);//return categoryData as a json
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.delete('/:id', (req, res) => {
@@ -75,3 +85,12 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+
+//Miscellaneous code
+ 
+  // try {
+  //   const categoryData = await Category.update({where: { id: req.params.id }})
+  //   res.status(200).json(categoryData);
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
