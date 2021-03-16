@@ -45,13 +45,6 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  // try {
-  //   const tagData = await Tag.update({where: { id: req.params.id }});
-  //   res.status(200).json(tagData);
-  // } catch (err) {
-  //   res.status(400).json(err);
-  // }
-
   Tag.update(req.body, {
     where: {
       id: req.params.id,
@@ -87,3 +80,11 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+
+//Miscellanous code
+  // try {
+  //   const tagData = await Tag.update({where: { id: req.params.id }});
+  //   res.status(200).json(tagData);
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
