@@ -8,7 +8,8 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Products
   try {
     const categoryData = await Category.findAll({
-      include: [{ model: Product, attributes: ["product_name", "price", "stock", "category_id"]}]
+      include: [{ model: Product }]
+      // include: [{ model: Product, attributes: ["product_name", "price", "stock", "category_id"]}]
     });
     res.status(200).json(categoryData);
   } catch (err) {
@@ -21,7 +22,7 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Products
   try {
     const categoryData = await Category.findByPk(req.params.id, {
-    
+
       include: [{ model: Product }]
     });
 
@@ -46,24 +47,24 @@ router.post('/', async (req, res) => {
   }
 });
 
+
 router.put('/:id', async (req, res) => {
- // update a category by its `id` value
-  Category.update(req.body, {
-    where: {
-      id: req.params.id,
-    }, //search for category by id value
-  })
-  .then(categoryData => {
-      if (!categoryData[0]) {
-        res.status(404).json({ message: 'No category found with this id' });
-        return; // if id value is 0, then return message above
-      }
-      res.json(categoryData);//return category as a json
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+  // update a category by its `id` value
+  try {
+    const categoryData = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      }, //search for category by id value
     });
+    if (!categoryData[0]) {
+      res.status(404).json({ message: 'No category found with this id' });
+      return; // if id value is 0, then return message above
+    }
+    res.json(categoryData);//return category as a json
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.delete('/:id', async (req, res) => {
@@ -88,10 +89,23 @@ router.delete('/:id', async (req, res) => {
 module.exports = router;
 
 //Miscellaneous code
- 
-  // try {
-  //   const categoryData = await Category.update({where: { id: req.params.id }})
-  //   res.status(200).json(categoryData);
-  // } catch (err) {
-  //   res.status(400).json(err);
-  // }
+
+// router.put('/:id', async (req, res) => {
+//   // update a category by its `id` value
+//   Category.update(req.body, {
+//     where: {
+//       id: req.params.id,
+//     }, //search for category by id value
+//   })
+//     .then(categoryData => {
+//       if (!categoryData[0]) {
+//         res.status(404).json({ message: 'No category found with this id' });
+//         return; // if id value is 0, then return message above
+//       }
+//       res.json(categoryData);//return category as a json
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });

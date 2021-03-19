@@ -7,7 +7,9 @@ router.get('/', async (req, res) => { //works
   // find all tags
   // be sure to include its associated Product data
   try {
-    const tagData = await Tag.findAll();
+    const tagData = await Tag.findAll({
+      include: [{ model: Product, through: ProductTag, as: 'selected_tags' }]
+    });
     res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
@@ -43,24 +45,25 @@ router.post('/', async (req, res) => { //works
   }
 });
 
-router.put('/:id', (req, res) => { //works
-  // update a tag's name by its `id` value
-  Tag.update(req.body, {
-    where: {
-      id: req.params.id,
-    }, //search for Tag by id value
-  })
-    .then(tagData => {
-      if (!tagData[0]) {
-        res.status(404).json({ message: 'No tag found with this id' });
-        return; // if id value is 0, then return message above
-      }
-      res.json(tagData);//return tagData as a json
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+
+
+router.put('/:id', async (req, res) => {
+  // update a category by its `id` value
+  try {
+    const categoryData = await Tag.update(req.body, {
+      where: {
+        id: req.params.id,
+      }, //search for tag by id value
     });
+    if (!tagData[0]) {
+      res.status(404).json({ message: 'No category found with this id' });
+      return; // if id value is 0, then return message above
+    }
+    res.json(tagData);//return tag as a json
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.delete('/:id', async (req, res) => { //works
@@ -82,9 +85,22 @@ router.delete('/:id', async (req, res) => { //works
 module.exports = router;
 
 //Miscellanous code
-  // try {
-  //   const tagData = await Tag.update({where: { id: req.params.id }});
-  //   res.status(200).json(tagData);
-  // } catch (err) {
-  //   res.status(400).json(err);
-  // }
+// router.put('/:id', (req, res) => { //works
+//   // update a tag's name by its `id` value
+//   Tag.update(req.body, {
+//     where: {
+//       id: req.params.id,
+//     }, //search for Tag by id value
+//   })
+//     .then(tagData => {
+//       if (!tagData[0]) {
+//         res.status(404).json({ message: 'No tag found with this id' });
+//         return; // if id value is 0, then return message above
+//       }
+//       res.json(tagData);//return tagData as a json
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
