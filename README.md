@@ -31,13 +31,9 @@ We do not have any test packages for this app but always check the error message
 
 [Google Drive Link to video walkthrough]()
 
-After running `node server.js` to start the server and then go to Insomnia app and type in the routes you require to CREATE, READ, UPDATE, DELETE the items. 
+After running `node server.js` to start the server and then go to Insomnia app and type in the routes you require to GET, POST, UPDATE, DELETE items. 
 
-## Final Product
-The Employee Tracker will allow a client to do the following actions:
- * Add departments, roles, employees
- * View departments, roles, employees
- * Update employee roles
+
 
 ## License
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)

@@ -50,13 +50,13 @@ router.post('/', async (req, res) => { //works
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try {
-    const categoryData = await Tag.update(req.body, {
+    const tagData = await Tag.update(req.body, {
       where: {
         id: req.params.id,
       }, //search for tag by id value
     });
     if (!tagData[0]) {
-      res.status(404).json({ message: 'No category found with this id' });
+      res.status(404).json({ message: 'No tag found with this id' });
       return; // if id value is 0, then return message above
     }
     res.json(tagData);//return tag as a json
