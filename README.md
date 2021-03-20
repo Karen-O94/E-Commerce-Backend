@@ -26,7 +26,8 @@ The mysql2 package connects you directly to the database created in the MySQL Wo
 
 Once all the dependencies are installed, you can initialise the application itself by running `node server.js` in the command line
 
-##Link to video walkthrough
+## Link to video walkthrough
+
 *Please see the video walkthrough for this application below*
 
 [Google Drive Link to video walkthrough](https://drive.google.com/file/d/1CN6Mg8UYk5xjRHbdQTDy-Zs6cGJrJ5tp/view?usp=sharing)
