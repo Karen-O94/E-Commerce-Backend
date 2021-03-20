@@ -3,9 +3,9 @@ A backend server for an e-commerce website that uses the latest technologies
 
 ## Screenshots
 *Command line*
-![image]()
+![image](https://user-images.githubusercontent.com/74797740/111865021-5de1ae80-895c-11eb-8b2b-520d852396a3.png)
 
-![image]()
+![image](https://user-images.githubusercontent.com/74797740/111865037-7baf1380-895c-11eb-8f4f-105ac7c777ab.png)
 
 ## Technology
 * XAMPP / MySQL
@@ -43,6 +43,8 @@ UPDATE/PUT by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idN
 DELETE by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum`
 
 If all requests are successfully made, you will see the data populated in the Preview box and a status '200 OK'. A '404' or '400' status will show up if there is an error or bad request made
+
+![image](https://user-images.githubusercontent.com/74797740/111864983-2e32a680-895c-11eb-820e-ace2b95886ed.png)
 
 ## Test
 We do not have any test packages for this app but always check the error messages within terminals and debug using console.log(s). 
