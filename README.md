@@ -30,7 +30,7 @@ Once all the dependencies are installed, you can initialise the application itse
 
 *Please see the video walkthrough for this application below*
 
-[Google Drive Link to video walkthrough](https://drive.google.com/file/d/1CN6Mg8UYk5xjRHbdQTDy-Zs6cGJrJ5tp/view?usp=sharing)
+[Google Drive Link to video walkthrough](https://drive.google.com/file/d/147g9RwbYyy5xj4ERrtXLPDtAQbO9tiC2/view)
 
 ## Usage 
 After running `node server.js` to start the server and then go to Insomnia app and type in the routes you require to send or make a request and select the methods GET(READ), POST(CREATE), PUT(UPDATE), DELETE from the drop down list before clicking 'SEND'. 
