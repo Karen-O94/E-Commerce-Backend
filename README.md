@@ -35,11 +35,11 @@ Once all the dependencies are installed, you can initialise the application itse
 ## Usage 
 After running `node server.js` to start the server and then go to Insomnia app and type in the routes you require to send or make a request and select the methods GET(READ), POST(CREATE), PUT(UPDATE), DELETE from the drop down list before clicking 'SEND'. 
 
-GET routes - localhost:`${PORTnumber}`/api/`${specifiedModel}` eg. localhost:3001/api/categories
-GET by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum` 
-POST routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`
-UPDATE/PUT by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum`
-DELETE by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum`
+* GET routes - localhost:`${PORTnumber}`/api/`${specifiedModel}` eg. localhost:3001/api/categories
+* GET by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum` 
+* POST routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`
+* UPDATE/PUT by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum`
+* DELETE by ID routes - localhost:`${PORTnumber}`/api/`${specifiedModel}`/`idNum`
 
 If all requests are successfully made, you will see the data populated in the Preview box and a status '200 OK'. A '404' or '400' status will show up if there is an error or bad request made
 
