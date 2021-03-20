@@ -2,7 +2,7 @@
 A backend server for an e-commerce website that uses the latest technologies
 
 ## Screenshots
-*Command line*
+*Insomnia App*
 ![image](https://user-images.githubusercontent.com/74797740/111865021-5de1ae80-895c-11eb-8b2b-520d852396a3.png)
 
 ![image](https://user-images.githubusercontent.com/74797740/111865037-7baf1380-895c-11eb-8f4f-105ac7c777ab.png)
@@ -11,6 +11,7 @@ A backend server for an e-commerce website that uses the latest technologies
 * XAMPP / MySQL
 * MySQl workbench
 * Javascript
+* Insomnia app
 
 ## Installation
 In order to use the ecommerce server, you will need to run `npm init -y` to initialise the `package.json ` and then install the following list of dependencies:
@@ -25,15 +26,12 @@ The mysql2 package connects you directly to the database created in the MySQL Wo
 
 Once all the dependencies are installed, you can initialise the application itself by running `node server.js` in the command line
 
-
-## Usage 
-
-*Gif of employee tracker in action*
-
+##Link to video walkthrough
 *Please see the video walkthrough for this application below*
 
-[Google Drive Link to video walkthrough]()
+[Google Drive Link to video walkthrough](https://drive.google.com/file/d/1CN6Mg8UYk5xjRHbdQTDy-Zs6cGJrJ5tp/view?usp=sharing)
 
+## Usage 
 After running `node server.js` to start the server and then go to Insomnia app and type in the routes you require to send or make a request and select the methods GET(READ), POST(CREATE), PUT(UPDATE), DELETE from the drop down list before clicking 'SEND'. 
 
 GET routes - localhost:`${PORTnumber}`/api/`${specifiedModel}` eg. localhost:3001/api/categories
